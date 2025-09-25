@@ -1,0 +1,94 @@
+/* Reset básico */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fa;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Container central */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px;
+}
+
+/* Caixa principal */
+.container {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 400px;
+}
+
+/* Título */
+.container h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #444;
+}
+
+/* Inputs e labels */
+p {
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.2s;
+}
+
+input:focus {
+  border-color: #4CAF50;
+  box-shadow: 0 0 4px rgba(76, 175, 80, 0.5);
+}
+
+/* Botões */
+button {
+  margin-top: 15px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+button:nth-child(1) {
+  background: #4CAF50;
+  color: white;
+}
+
+button:nth-child(1):hover {
+  background: #45a049;
+}
+
+button:nth-child(2) {
+  background: #2196F3;
+  color: white;
+  margin-left: 10px;
+}
+
+button:nth-child(2):hover {
+  background: #0b7dda;
+}
+
+/* Área de saída */
+#saida {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f1f8e9;
+  border: 1px solid #c5e1a5;
+  border-radius: 8px;
+  color: #33691e;
+  font-size: 14px;
+}
