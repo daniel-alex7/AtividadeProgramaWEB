@@ -19,31 +19,33 @@ ser exibido o total dos valores contido no carrinho. (1 ponto) -->
 </head>
 
 <body>
-    <form action="">
-        <p>Adicionar produto: </p>
-        <input type="text" id="N_produto">
+    <h2>Carrinho de Compras</h2>
 
-        <p>Valor do produto: </p>
-        <input type="text" id="V_produto">
+    <form onsubmit="return false;">
+        <p>Escolha o produto:</p>
+        <select id="N_produto">
+            <option value="Arroz" data-valor="25">Arroz - R$25,00</option>
+            <option value="Feijão" data-valor="12">Feijão - R$12,00</option>
+            <option value="Macarrão" data-valor="8">Macarrão - R$8,00</option>
+            <option value="Leite" data-valor="6">Leite - R$6,00</option>
+            <option value="Óleo" data-valor="10">Óleo - R$10,00</option>
+        </select>
+
+        <p>Quantidade:</p>
+        <input type="number" id="Q_produto" min="1" value="1">
+
+        <br><br>
+
+        <button type="button" onclick="Inserir()">Inserir</button>
+        <button type="button" onclick="Remover()">Remover último</button>
+        <button type="button" onclick="Finalizar()">Finalizar</button>
+    </form>
+
+    <div id="saida"></div>
 
 
-        <p>Quantidade: </p>
-        <input type="number" id="Q_produto">
-
-        <br> 
-
-        <div id="saida">
-
-        </div>
-
-        <br>  
-
-        <button type="button" onclick="Adicionar()"> Adicionar </button>
-        <button type="button" onclick="Finalizar()"> Finalizar </button>
-
-    </form >
 
 
-    
-</body >
-</html >
+</body>
+
+</html>

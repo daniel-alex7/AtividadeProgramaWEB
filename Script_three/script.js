@@ -1,53 +1,55 @@
-let produtos = [];
-let valores = [];
-let quantidades = [];
+let carrinho = [];
 
-function Adicionar() {
-    let nome = document.getElementById("N_produto").value;
-    let valor = Number(document.getElementById("V_produto").value);
-    let quantidade = Number(document.getElementById("Q_produto").value);
+function atualizarSaida() {
+    let saida = document.getElementById("saida");
+    saida.innerHTML = "";
 
-    if (!nome || isNaN(valor) || isNaN(quantidade)) {
-        alert("Preencha todos os campos corretamente!");
+    if (carrinho.length === 0) {
+        saida.innerHTML = "<p>Carrinho vazio!</p>";
         return;
     }
 
-    produtos.push(nome);
-    valores.push(valor);
-    quantidades.push(quantidade);
+    let total = 0;
+    carrinho.forEach(item => {
+        let subtotal = item.valor * item.quantidade;
+        total += subtotal;
+        saida.innerHTML +=
+            `${item.nome} | R$ ${item.valor.toFixed(2)} | Qtd: ${item.quantidade} | Subtotal: R$ ${subtotal.toFixed(2)}<br>`;
+    });
 
-    document.getElementById("saida").innerHTML =
-        "Produto adicionado: " + nome +
-        " | Valor: R$ " + valor.toFixed(2) +
-        " | Quantidade: " + quantidade + "<br>" +
-        "<strong>Total de produtos cadastrados: " + produtos.length + "</strong>";
+    saida.innerHTML += "<hr><strong>Total do carrinho: R$ " + total.toFixed(2) + "</strong>";
+}
 
-    // limpa os inputs
-    document.getElementById("N_produto").value = "";
-    document.getElementById("V_produto").value = "";
-    document.getElementById("Q_produto").value = "";
+function Inserir() {
+    let select = document.getElementById("N_produto");
+    let nome = select.value;
+    let valor = Number(select.selectedOptions[0].getAttribute("data-valor"));
+    let quantidade = Number(document.getElementById("Q_produto").value);
+
+    if (quantidade <= 0) {
+        alert("Informe uma quantidade válida!");
+        return;
+    }
+
+    carrinho.push({ nome, valor, quantidade });
+    atualizarSaida();
+}
+
+function Remover() {
+    if (carrinho.length === 0) {
+        alert("Carrinho já está vazio!");
+        return;
+    }
+    carrinho.pop();
+    atualizarSaida();
 }
 
 function Finalizar() {
-    if (produtos.length === 0) {
-        alert("Nenhum produto adicionado!");
+    if (carrinho.length === 0) {
+        alert("Nenhum produto no carrinho!");
         return;
     }
-
-    let valoresTotais = [];
-    for (let i = 0; i < produtos.length; i++) {
-        valoresTotais[i] = valores[i] * quantidades[i];
-    }
-
-    let totalVendas = valoresTotais.reduce((soma, v) => soma + v, 0);
-    let medDay = totalVendas / 7;
-    let maiorVenda = Math.max(...valoresTotais);
-    let menorVenda = Math.min(...valoresTotais);
-
-    document.getElementById("saida").innerHTML =
-        "<h3> Relatório de Vendas</h3>" +
-        "Total vendido: R$ " + totalVendas.toFixed(2) + "<br>" +
-        "Média diária: R$ " + medDay.toFixed(2) + "<br>" +
-        "Maior venda de produto: R$ " + maiorVenda.toFixed(2) + "<br>" +
-        "Menor venda de produto: R$ " + menorVenda.toFixed(2);
+    let total = carrinho.reduce((soma, item) => soma + (item.valor * item.quantidade), 0);
+    atualizarSaida();
+    alert("Compra finalizada! Total: R$ " + total.toFixed(2));
 }
