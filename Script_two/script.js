@@ -1,5 +1,7 @@
 let filaNome = [];
 
+
+//Notei que precisava renderizar a fila para adicionar os nomes dentro da página
 function renderizarFila() {
     let saida = document.getElementById("saida");
     saida.innerHTML = ""; // limpa a área

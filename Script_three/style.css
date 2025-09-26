@@ -1,14 +1,68 @@
- body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
-    }
-    #saida {
-      margin-top: 20px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
-    select, input, button {
-      margin: 5px 0;
-      padding: 5px;
-    }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f6fa;
+  color: #2f3640;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+}
+
+.container {
+  background: #fff;
+  margin-top: 40px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  width: 350px;
+}
+
+h2 {
+  margin-right: 50px;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #273c75;
+  
+}
+
+select,
+input,
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #dcdde1;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+button {
+  background: #273c75;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: bold;
+}
+
+button:hover {
+  background: #40739e;
+}
+
+#saida {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f1f2f6;
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5em;
+  margin-left: 50px;
+}
+
+#saida strong {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  color: #44bd32;
+}

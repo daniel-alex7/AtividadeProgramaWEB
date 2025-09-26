@@ -9,6 +9,7 @@ function atualizarSaida() {
         return;
     }
 
+    // Professor, aqui notei que precisava executar uma função para cada elemento, por isso pesquisei e achei o forEach()
     let total = 0;
     carrinho.forEach(item => {
         let subtotal = item.valor * item.quantidade;
@@ -20,6 +21,7 @@ function atualizarSaida() {
     saida.innerHTML += "<hr><strong>Total do carrinho: R$ " + total.toFixed(2) + "</strong>";
 }
 
+//Para inserir o produto:
 function Inserir() {
     let select = document.getElementById("N_produto");
     let nome = select.value;
@@ -35,6 +37,7 @@ function Inserir() {
     atualizarSaida();
 }
 
+//Remover produto
 function Remover() {
     if (carrinho.length === 0) {
         alert("Carrinho já está vazio!");
@@ -44,6 +47,7 @@ function Remover() {
     atualizarSaida();
 }
 
+//Finalizar compra
 function Finalizar() {
     if (carrinho.length === 0) {
         alert("Nenhum produto no carrinho!");

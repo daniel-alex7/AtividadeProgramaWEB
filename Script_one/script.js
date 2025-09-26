@@ -39,6 +39,8 @@ function Finalizar() {
         valoresTotais[i] = valores[i] * quantidades[i];
     }
 
+    // O método reduce() em JavaScript é usado para iterar sobre um array e acumular um único valor de resultado, que pode ser um número, string, objeto ou até outro array.
+
     let totalVendas = valoresTotais.reduce((soma, v) => soma + v, 0);
     let medDay = totalVendas / 7;
     let maiorVenda = Math.max(...valoresTotais);
